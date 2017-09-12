@@ -176,6 +176,10 @@ Function Get-SCManagerPermission {
     .EXAMPLE
         Get-SCManagerPermission
 
+    .EXAMPLE
+    Get-SCManagerPermission | 
+    Select Transl*,Secu*,AccessMask,AceType | ft -AutoSize
+
 #>
 [CmdletBinding()]
 Param()

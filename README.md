@@ -81,7 +81,11 @@ Import-Module ~/Downloads/SCManager/1.0.0/SCManager.psd1 -Force -Verbose
 Get-Command -Module SCManager
 ```
 ```
-??
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Function        Get-SCManagerPermission                            1.0.0      SCManager
+Function        Restore-SCManagerPermission                        1.0.0      SCManager
+Function        Set-SCManagerPermission                            1.0.0      SCManager
 ```
 <a name="Help"/>
 
@@ -90,7 +94,54 @@ Get-Command -Module SCManager
  Get-Help Get-SCManagerPermission -Full
 ```
 ```
-??
+
+NAME
+    Get-SCManagerPermission
+
+SYNOPSIS
+    Get the current SC Manager permissions
+
+
+SYNTAX
+    Get-SCManagerPermission [<CommonParameters>]
+
+
+DESCRIPTION
+    Get the current SC Manager permissions
+
+
+PARAMETERS
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+INPUTS
+
+OUTPUTS
+
+    -------------------------- EXAMPLE 1 --------------------------
+
+    PS C:\>Get-SCManagerPermission
+
+
+
+
+
+
+    -------------------------- EXAMPLE 2 --------------------------
+
+    PS C:\>Get-SCManagerPermission |
+
+    Select Transl*,Secu*,AccessMask,AceType | ft -AutoSize
+
+
+
+
+
+RELATED LINKS
+
 ```
 
 ### Set-NetSessionEnumPermission
@@ -98,7 +149,70 @@ Get-Command -Module SCManager
  Get-Help Set-SCManagerPermission -Full
 ```
 ```
-??
+
+NAME
+    Set-SCManagerPermission
+
+SYNOPSIS
+    Set the hardened SC Manager permissions
+
+
+SYNTAX
+    Set-SCManagerPermission [-WhatIf] [-Confirm] [<CommonParameters>]
+
+
+DESCRIPTION
+    Set the hardened SC Manager permissions by adding AccessDenied to NT AUTHORITY\NETWORK
+
+
+PARAMETERS
+    -WhatIf [<SwitchParameter>]
+
+        Required?                    false
+        Position?                    named
+        Default value
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+
+    -Confirm [<SwitchParameter>]
+
+        Required?                    false
+        Position?                    named
+        Default value
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+INPUTS
+
+OUTPUTS
+
+    -------------------------- EXAMPLE 1 --------------------------
+
+    PS C:\>Set-SCManagerPermission -Whatif
+
+
+
+
+
+
+    -------------------------- EXAMPLE 2 --------------------------
+
+    PS C:\>Set-SCManagerPermission -Verbose -Confirm:$false
+
+
+
+
+
+
+
+RELATED LINKS
+
 ```
 
 ### Restore-NetSessionEnumPermission
@@ -106,7 +220,70 @@ Get-Command -Module SCManager
 Get-Help Restore-SCManagerPermission -Full
 ```
 ```
-??
+
+NAME
+    Restore-SCManagerPermission
+
+SYNOPSIS
+    Restore the default SC Manager permissions
+
+
+SYNTAX
+    Restore-SCManagerPermission [-WhatIf] [-Confirm] [<CommonParameters>]
+
+
+DESCRIPTION
+    Restore the default SC Manager permissions by removing AccessDenied to NT AUTHORITY\NETWORK
+
+
+PARAMETERS
+    -WhatIf [<SwitchParameter>]
+
+        Required?                    false
+        Position?                    named
+        Default value
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+
+    -Confirm [<SwitchParameter>]
+
+        Required?                    false
+        Position?                    named
+        Default value
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+INPUTS
+
+OUTPUTS
+
+    -------------------------- EXAMPLE 1 --------------------------
+
+    PS C:\>Restore-SCManagerPermission -Whatif
+
+
+
+
+
+
+    -------------------------- EXAMPLE 2 --------------------------
+
+    PS C:\>Restore-SCManagerPermission -Verbose -Confirm:$false
+
+
+
+
+
+
+
+RELATED LINKS
+
 ```
 
 <a name="Issues"/>
