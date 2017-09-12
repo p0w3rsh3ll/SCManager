@@ -106,8 +106,10 @@ Process {
                     0
                 )
             } catch [System.Management.Automation.ItemNotFoundException] {
-                New-Object System.Security.AccessControl.RawSecurityDescriptor(
-                    (& (Get-Command "$($env:SystemRoot)\System32\sc.exe") @('sdshow','scmanager'))[1]
+                New-Object -TypeName System.Security.AccessControl.CommonSecurityDescriptor -ArgumentList (
+                    $true,
+                    $false,
+                    ((& (Get-Command "$($env:SystemRoot)\System32\sc.exe") @('sdshow','scmanager'))[1])
                 )
             } catch {
                 Write-Warning -Message "Failed to read Security in the registry because $($_.Exception.Message)"
@@ -193,8 +195,10 @@ Process {
             0
         )
     } catch [System.Management.Automation.ItemNotFoundException] {
-        New-Object System.Security.AccessControl.RawSecurityDescriptor(
-            (& (Get-Command "$($env:SystemRoot)\System32\sc.exe") @('sdshow','scmanager'))[1]
+        New-Object -TypeName System.Security.AccessControl.CommonSecurityDescriptor -ArgumentList (
+            $true,
+            $false,
+            ((& (Get-Command "$($env:SystemRoot)\System32\sc.exe") @('sdshow','scmanager'))[1])
         )
     } catch {
         Write-Warning -Message "Failed to read Security in the registry because $($_.Exception.Message)"
