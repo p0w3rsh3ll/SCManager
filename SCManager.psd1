@@ -4,7 +4,7 @@
 RootModule = 'SCManager.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0'
+ModuleVersion = '1.0.1'
 
 # ID used to uniquely identify this module
 GUID = '9b50a79e-9c91-49fe-8428-12ec932f4ae2'
@@ -16,7 +16,7 @@ Author = 'Emin Atac'
 Copyright = 'BSD 3-Clause'
 
 # Description of the functionality provided by this module
-Description = 'SCManager is a module that will help disable Net Session Enumeration'
+Description = 'SCManager is a module that will help disable remote Service Controller enumeration and block the remote use of psexec.exe and sc.exe'
 
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '3.0'
