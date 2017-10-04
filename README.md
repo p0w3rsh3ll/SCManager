@@ -89,7 +89,7 @@ Function        Set-SCManagerPermission                            1.0.0      SC
 ```
 <a name="Help"/>
 
-### Get-NetSessionEnumPermission
+### Get-SCManagerPermission
 ```powershell
  Get-Help Get-SCManagerPermission -Full
 ```
@@ -144,7 +144,7 @@ RELATED LINKS
 
 ```
 
-### Set-NetSessionEnumPermission
+### Set-SCManagerPermission
 ```powershell
  Get-Help Set-SCManagerPermission -Full
 ```
@@ -215,7 +215,7 @@ RELATED LINKS
 
 ```
 
-### Restore-NetSessionEnumPermission
+### Restore-SCManagerPermission
 ```powershell
 Get-Help Restore-SCManagerPermission -Full
 ```
