@@ -58,14 +58,14 @@ Stop and please review the content of the module, I mean the code to make sure i
 You can also verify that the SHA256 hashes of downloaded files match those stored in the catalog file
 ```powershell
 $HT = @{
-    CatalogFilePath = "~/Downloads/SCManager/1.0.0/SCManager.cat"
-    Path = "~/Downloads/SCManager/1.0.0"
+    CatalogFilePath = "~/Downloads/SCManager/1.0.1/SCManager.cat"
+    Path = "~/Downloads/SCManager/1.0.1"
     Detailed = $true
     FilesToSkip = 'PSGetModuleInfo.xml'
 }
 Test-FileCatalog @HT
 # Make sure the catalog file is digitally signed
-Get-AuthenticodeSignature "~/Downloads/SCManager/1.0.0/SCManager.cat"
+Get-AuthenticodeSignature "~/Downloads/SCManager/1.0.1/SCManager.cat"
 # Make sure the manifest (.psd1) and the module (*.psm1) are signed as well
 Get-ChildItem -Path ~/Downloads/SCManager -Include *.ps?1 -Recurse | Get-AuthenticodeSignature
 
@@ -73,7 +73,7 @@ Get-ChildItem -Path ~/Downloads/SCManager -Include *.ps?1 -Recurse | Get-Authent
 
 ```powershell
 # Import the module
-Import-Module ~/Downloads/SCManager/1.0.0/SCManager.psd1 -Force -Verbose
+Import-Module ~/Downloads/SCManager/1.0.1/SCManager.psd1 -Force -Verbose
 ```
 
 <a name="Functions"/>
@@ -85,9 +85,9 @@ Get-Command -Module SCManager
 ```
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Function        Get-SCManagerPermission                            1.0.0      SCManager
-Function        Restore-SCManagerPermission                        1.0.0      SCManager
-Function        Set-SCManagerPermission                            1.0.0      SCManager
+Function        Get-SCManagerPermission                            1.0.1      SCManager
+Function        Restore-SCManagerPermission                        1.0.1      SCManager
+Function        Set-SCManagerPermission                            1.0.1      SCManager
 ```
 <a name="Help"/>
 
