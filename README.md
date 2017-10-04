@@ -43,7 +43,9 @@ Permissions, their binary format of the Security Descriptor Definition Language 
 Find-Module -Name SCManager -Repository PSGallery
 ```
 ``` 
-??
+Version    Name                                Repository           Description
+-------    ----                                ----------           -----------
+1.0.0      SCManager                           PSGallery            SCManager is a module that will help disable
 ```
 
 ```powershell
