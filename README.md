@@ -45,7 +45,7 @@ Find-Module -Name SCManager -Repository PSGallery
 ``` 
 Version    Name                                Repository           Description
 -------    ----                                ----------           -----------
-1.0.0      SCManager                           PSGallery            SCManager is a module that will help disable
+1.0.1      SCManager                           PSGallery            SCManager is a module that will help disable
 ```
 
 ```powershell
