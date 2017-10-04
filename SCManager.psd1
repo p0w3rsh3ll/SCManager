@@ -7,7 +7,7 @@ RootModule = 'SCManager.psm1'
 ModuleVersion = '1.0.0'
 
 # ID used to uniquely identify this module
-GUID = 'e25b8d54-11ac-4a6e-8954-731524190329'
+GUID = '9b50a79e-9c91-49fe-8428-12ec932f4ae2'
 
 # Author of this module
 Author = 'Emin Atac'
