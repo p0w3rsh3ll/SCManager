@@ -115,22 +115,19 @@ Process {
                 Write-Warning -Message "Failed to read Security in the registry because $($_.Exception.Message)"
             }
         )
-        # If already present
-        if ('S-1-5-2' -in ($csd).SecurityIdentifier.Value) {
-            # Remove first
-            $csd.DiscretionaryAcl | Where-Object { $_.SecurityIdentifier.Value -eq 'S-1-5-2' } | ForEach-Object {
-                try {
-                    $csd.DiscretionaryAcl.RemoveAccessSpecific(
-                        $_.AceType,
-                        $_.SecurityIdentifier,
-                        $_.AccessMask,
-                        0,
-                        0
-                    )
-                    Write-Verbose -Message "Successfully removed $($_.AceType) for NT AUTHORITY\NETWORK"
-                } catch {
-                    Write-Warning -Message "Failed to remove access because $($_.Exception.Message)"
-                }
+        # If already present, remove first
+        $csd.DiscretionaryAcl | Where-Object { $_.SecurityIdentifier.Value -eq 'S-1-5-2' } | ForEach-Object {
+            try {
+                $csd.DiscretionaryAcl.RemoveAccessSpecific(
+                    $_.AceType,
+                    $_.SecurityIdentifier,
+                    $_.AccessMask,
+                    0,
+                    0
+                )
+                Write-Verbose -Message "Successfully removed $($_.AceType) for NT AUTHORITY\NETWORK"
+            } catch {
+                Write-Warning -Message "Failed to remove access because $($_.Exception.Message)"
             }
         }
         # Add it now
