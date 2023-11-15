@@ -61,7 +61,7 @@ Process {
         }
         # Commit changes
         try {
-            $sddl = $csd.GetSddlForm([System.Security.AccessControl.AccessControlSections]::Access)
+            $sddl = $csd.GetSddlForm([System.Security.AccessControl.AccessControlSections]::All)
             $null = (& (Get-Command "$($env:SystemRoot)\System32\sc.exe") @('sdset','scmanager',"$($sddl)"))
             Write-Verbose -Message 'Successfully restored Service Control Mananger ACL' -Verbose
         } catch {
@@ -154,7 +154,7 @@ Process {
             # $data = New-Object -TypeName System.Byte[] -ArgumentList $csd.BinaryLength
             # $csd.GetBinaryForm($data,0)
             # Set-ItemProperty @HT -Name Security -Value $data
-            $sddl = $csd.GetSddlForm([System.Security.AccessControl.AccessControlSections]::Access)
+            $sddl = $csd.GetSddlForm([System.Security.AccessControl.AccessControlSections]::All)
             $null = (& (Get-Command "$($env:SystemRoot)\System32\sc.exe") @('sdset','scmanager',"$($sddl)"))
             Write-Verbose -Message 'Successfully set binary ACL in the registry' -Verbose
         } catch {
