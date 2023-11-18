@@ -23,7 +23,7 @@ Begin {
     }
 }
 Process {
-    if ($PSCmdlet.ShouldProcess(('Item: {0} Property: {1}' -f $HT['Path'],'Security'),'Change binary value')) {     
+    if ($PSCmdlet.ShouldProcess(('Item: {0} Property: {1}' -f $HT['Path'],'Security'),'Change binary value')) {
 
         # Get current permissions
         $csd = $(
@@ -43,8 +43,8 @@ Process {
             } catch {
                 Write-Warning -Message "Failed to read Security in the registry because $($_.Exception.Message)"
             }
-        )        
-    
+        )
+
         $csd.DiscretionaryAcl | Where-Object { $_.SecurityIdentifier.Value -eq 'S-1-5-2' } | ForEach-Object {
             try {
                 $csd.DiscretionaryAcl.RemoveAccessSpecific(
@@ -71,7 +71,7 @@ Process {
 }
 End {}
 }
-        
+
 Function Set-SCManagerPermission {
 <#
     .SYNOPSIS
@@ -161,7 +161,7 @@ Process {
 }
 End {}
 }
-    
+
 Function Get-SCManagerPermission {
 <#
     .SYNOPSIS
@@ -169,12 +169,12 @@ Function Get-SCManagerPermission {
 
     .DESCRIPTION
         Get the current SC Manager permissions
-              
+
     .EXAMPLE
         Get-SCManagerPermission
 
     .EXAMPLE
-    Get-SCManagerPermission | 
+    Get-SCManagerPermission |
     Select Transl*,Secu*,AccessMask,AceType | ft -AutoSize
 
 #>
@@ -203,8 +203,8 @@ Process {
         )
     } catch {
         Write-Warning -Message "Failed to read Security in the registry because $($_.Exception.Message)"
-    }    
-    ).DiscretionaryAcl | 
+    }
+    ).DiscretionaryAcl |
     ForEach-Object {
         $_ | Add-Member -MemberType ScriptProperty -Name TranslatedSID -Value ({
             $this.SecurityIdentifier.Translate([System.Security.Principal.NTAccount]).Value

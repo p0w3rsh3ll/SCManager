@@ -13,6 +13,7 @@ SCManager PowerShell Module
 * [Issues](#issues)
 * [Todo](#Todo)
 * [Credits](#Credits)
+* [Other links](#SCManagerDoc)
 
 <a name="Intent"/>
 
@@ -45,7 +46,7 @@ Find-Module -Name SCManager -Repository PSGallery
 ``` 
 Version    Name                                Repository           Description
 -------    ----                                ----------           -----------
-1.0.1      SCManager                           PSGallery            SCManager is a module that will help disable
+1.0.2      SCManager                           PSGallery            SCManager is a module that will help disable
 ```
 
 ```powershell
@@ -58,22 +59,17 @@ Stop and please review the content of the module, I mean the code to make sure i
 You can also verify that the SHA256 hashes of downloaded files match those stored in the catalog file
 ```powershell
 $HT = @{
-    CatalogFilePath = "~/Downloads/SCManager/1.0.1/SCManager.cat"
-    Path = "~/Downloads/SCManager/1.0.1"
+    CatalogFilePath = "~/Downloads/SCManager/1.0.2/SCManager.cat"
+    Path = "~/Downloads/SCManager/1.0.2"
     Detailed = $true
     FilesToSkip = 'PSGetModuleInfo.xml'
 }
 Test-FileCatalog @HT
-# Make sure the catalog file is digitally signed
-Get-AuthenticodeSignature "~/Downloads/SCManager/1.0.1/SCManager.cat"
-# Make sure the manifest (.psd1) and the module (*.psm1) are signed as well
-Get-ChildItem -Path ~/Downloads/SCManager -Include *.ps?1 -Recurse | Get-AuthenticodeSignature
-
 ```
 
 ```powershell
 # Import the module
-Import-Module ~/Downloads/SCManager/1.0.1/SCManager.psd1 -Force -Verbose
+Import-Module ~/Downloads/SCManager/1.0.2/SCManager.psd1 -Force -Verbose
 ```
 
 <a name="Functions"/>
@@ -85,9 +81,9 @@ Get-Command -Module SCManager
 ```
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Function        Get-SCManagerPermission                            1.0.1      SCManager
-Function        Restore-SCManagerPermission                        1.0.1      SCManager
-Function        Set-SCManagerPermission                            1.0.1      SCManager
+Function        Get-SCManagerPermission                            1.0.2      SCManager
+Function        Restore-SCManagerPermission                        1.0.2      SCManager
+Function        Set-SCManagerPermission                            1.0.2      SCManager
 ```
 <a name="Help"/>
 
@@ -301,8 +297,22 @@ RELATED LINKS
 - [x] Use PSScriptAnalyzer module to validate the code follows best practices
 - [ ] Write Pester tests for this module
 
+- [x] Test the module in PowerShell Core 7.x (latest)
+- [ ] Test the module on various versions of Windows 10
+  - [x] 22H2
+- [] Test the module on various versions of Windows 11
+  - [] 22H2
+  - [] 23H2
+
+
 <a name="Credits"/>
 
 ## Credits
 Thanks go to:
 * **[@JohnLaTwC](https://twitter.com/JohnLaTwC)**: 
+
+<a name="SCManagerDoc"/>
+
+## Other links
+
+* [https://p0w3rsh3ll.wordpress.com/2017/10/04/service-control-manager-acl-module](https://p0w3rsh3ll.wordpress.com/2017/10/04/service-control-manager-acl-module/)
