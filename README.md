@@ -5,7 +5,7 @@ SCManager PowerShell Module
 
 ## Table of Contents
 
-* [Intnet](#Intent)
+* [Intent](#Intent)
 * [Usage](#Usage)
   * [Install the module](#Install)
   * [Functions](#Functions)
@@ -18,7 +18,7 @@ SCManager PowerShell Module
 
 ## Intent
 
-John Lambert showed on twitter how the Service Controller (SC) Manager can be hardened to block remote use of PSEXEC or similar tools.
+John Lambert [showed on Twitter](https://twitter.com/JohnLaTwC/status/802218490404798464) how the Service Controller (SC) Manager can be hardened to block remote use of PSEXEC or similar tools.
 
 This module is most of the time a wrapper around the sc.exe, to avoid to have to restart the computer for changes to apply.
 
